@@ -62,65 +62,65 @@ Em substituição ao domínio bancário convencional do laboratório original (`
 
 ```mermaid
 classDiagram
-  class Developer {
+  class Desenvolvedor {
     -Long id
-    -String name
+    -String nome
     -String email
-    -String githubUsername
-    -Plan plan
-    -Wallet wallet
-    -List~Skill~ skills
-    -List~Certification~ certifications
-    -List~Announcement~ announcements
+    -String usuarioGithub
+    -Plano plano
+    -Carteira carteira
+    -List~Habilidade~ habilidades
+    -List~Certificacao~ certificacoes
+    -List~Aviso~ avisos
   }
 
-  class Plan {
+  class Plano {
     -Long id
-    -String name
-    -BigDecimal price
-    -Integer mentorshipCredits
-    -Boolean active
+    -String nome
+    -BigDecimal preco
+    -Integer creditosMentoria
+    -Boolean ativo
   }
 
-  class Wallet {
+  class Carteira {
     -Long id
-    -BigDecimal devCoins
-    -Integer xpPoints
-    -String rankLevel
+    -BigDecimal moedasDev
+    -Integer pontosXP
+    -String nivelSenioridade
   }
 
-  class BaseItem {
-    <<abstract>>
+  class ItemBase {
+    <<abstrato>>
     -Long id
-    -String title
-    -String description
-    -String iconUrl
+    -String titulo
+    -String descricao
+    -String iconeUrl
   }
 
-  class Skill {
-    -String category
-    -Integer level
+  class Habilidade {
+    -String categoria
+    -Integer nivel
   }
 
-  class Certification {
-    -String validationCode
-    -LocalDate issuedAt
-    -String issuer
+  class Certificacao {
+    -String codigoValidacao
+    -LocalDate dataEmissao
+    -String emissor
   }
 
-  class Announcement {
-    -LocalDateTime publishedAt
-    -String actionUrl
+  class Aviso {
+    -LocalDateTime dataPublicacao
+    -String urlAcao
   }
 
-  BaseItem <|-- Skill
-  BaseItem <|-- Certification
-  BaseItem <|-- Announcement
-  Developer "1" *-- "1" Plan
-  Developer "1" *-- "1" Wallet
-  Developer "1" *-- "N" Skill
-  Developer "1" *-- "N" Certification
-  Developer "1" *-- "N" Announcement
+  ItemBase <|-- Habilidade
+  ItemBase <|-- Certificacao
+  ItemBase <|-- Aviso
+  Desenvolvedor "1" *-- "1" Plano
+  Desenvolvedor "1" *-- "1" Carteira
+  Desenvolvedor "1" *-- "N" Habilidade
+  Desenvolvedor "1" *-- "N" Certificacao
+  Desenvolvedor "1" *-- "N" Aviso
 ```
 
 ---
