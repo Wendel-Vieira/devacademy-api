@@ -255,19 +255,3 @@ JSON de especificação OpenAPI 3.0:
    - Console H2: `http://localhost:8080/h2-console`
 
 ---
-
-## ☁ Guia de Deploy na Nuvem (Railway)
-
-Para colocar a API em produção no **Railway**:
-
-1. **Crie uma conta** no [Railway.app](https://railway.app/).
-2. **Crie um novo projeto** (`New Project`) e adicione um serviço de banco **PostgreSQL** (`Database -> Add PostgreSQL`).
-3. **Adicione seu serviço Java/GitHub**:
-   - Conecte seu repositório GitHub onde o projeto foi publicado.
-4. **Configure as Variáveis de Ambiente** (`Variables`) no serviço da API no Railway:
-   - `SPRING_PROFILES_ACTIVE`: `prd`
-   - `DATABASE_URL`: `${{Postgres.DATABASE_URL}}`
-   - `PGUSER`: `${{Postgres.PGUSER}}`
-   - `PGPASSWORD`: `${{Postgres.PGPASSWORD}}`
-5. O Railway detectará o Maven e executará o build e deploy automaticamente.
-6. A sua documentação Swagger estará acessível na URL gerada pelo Railway em `/swagger-ui.html`!
